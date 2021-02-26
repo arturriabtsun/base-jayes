@@ -11,11 +11,9 @@ const fileName = (ext) => (isDev ? `bundle.${ext}` : `bundle.[fullhash].${ext}`)
 const jsLoaders = () => {
   const loaders = [
     {
-      loader: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-        },
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
       },
     },
   ]
@@ -74,12 +72,6 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: jsLoaders(),
-        loader: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
       },
     ],
   },
