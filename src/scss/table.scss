@@ -6,6 +6,7 @@
   left: 0;
   right: 0;
   top: $header-height + $toolbat-height + $formula-height;
+  overflow-x: auto;
   .row {
     display: flex;
     flex-direction: row;

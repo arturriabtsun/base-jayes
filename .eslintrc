@@ -8,7 +8,9 @@
   "rules": {
     "semi": "off",
     "object-curly-spacing": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "require-jsdoc": "off",
+    "indent": "off"
   },
   "extends": [
     "eslint:recommended",

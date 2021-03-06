@@ -7,13 +7,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
 
-const fileName = (ext) => (isDev ? `bundle.${ext}` : `bundle.[fullhash].${ext}`)
+const fileName = (ext) => (isProd ? `bundle.${ext}` : `bundle.[fullhash].${ext}`)
 const jsLoaders = () => {
   const loaders = [
     {
       loader: 'babel-loader',
       options: {
         presets: ['@babel/preset-env'],
+        plugins: ['@babel/plugin-proposal-class-properties'],
       },
     },
   ]
