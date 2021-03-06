@@ -7,7 +7,10 @@
   },
   "rules": {
     "semi": "off",
-    "objectsInObjects": true
+    "object-curly-spacing": "off",
+    "max-len": "off",
+    "require-jsdoc": "off",
+    "indent": "off"
   },
   "extends": [
     "eslint:recommended",
