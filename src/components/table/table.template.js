@@ -2,10 +2,12 @@ const CODES = {
   A: 65,
   Z: 90,
 }
-function toCell(_, colIndex) {
-  return `
-  <div class="cell" contenteditable="true" data-col="${colIndex}"></div>
-  `
+function toCell(rowIndex) {
+  return function (_, colIndex) {
+    return `
+    <div class="cell" contenteditable="true" data-col="${colIndex}" data-type="cell" data-id="${rowIndex}:${colIndex}"></div>
+    `
+  }
 }
 function toCol(col, index) {
   return `
@@ -30,11 +32,11 @@ export function createTable(rowsCount = 100) {
   const colsCount = CODES.Z - CODES.A + 1
   const rows = []
   const cols = new Array(colsCount).fill('').map(toChar).map(toCol).join('')
-  const cells = new Array(colsCount).fill('').map(toCell).join('')
   rows.push(createRow(cols))
 
-  for (let i = 0; i < rowsCount; i++) {
-    rows.push(createRow(cells, i + 1))
+  for (let row = 0; row < rowsCount; row++) {
+    const cells = new Array(colsCount).fill('').map(toCell(row)).join('')
+    rows.push(createRow(cells, row + 1))
   }
   return rows.join('')
 }
